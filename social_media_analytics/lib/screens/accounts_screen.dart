@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_media_analytics/models/account.dart';
 import 'package:social_media_analytics/widgets/account_widget.dart';
 import 'package:social_media_analytics/widgets/app_bar.dart';
+import 'package:social_media_analytics/widgets/bottom_navigation_bar.dart';
 
 import '../constants.dart';
 
@@ -26,29 +27,24 @@ class Accounts extends StatelessWidget {
             ),
             color: Colors.white38,
           ),
-          child: ListView.builder(
-            itemBuilder: (context, index) => AccountWidget(
-              name: Account.accountsList[index].name,
-              imageLocation: Account.accountsList[index].imageLocation,
-              verified: Account.accountsList[index].verified,
-            ),
-            itemCount: Account.accountsList.length,
-            padding: EdgeInsets.only(bottom: 20),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: (context, index) => AccountWidget(
+                    name: Account.accountsList[index].name,
+                    imageLocation: Account.accountsList[index].imageLocation,
+                    verified: Account.accountsList[index].verified,
+                  ),
+                  itemCount: Account.accountsList.length,
+                  padding: EdgeInsets.only(bottom: 20),
+                ),
+              ),
+              SMABottomNavBar(),
+            ],
           ),
         ),
-        bottomNavigationBar: SMABottomNavBar(),
       ),
-    );
-  }
-}
-
-class SMABottomNavBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: MediaQuery.of(context).size.width,
-      color: Colors.green,
     );
   }
 }

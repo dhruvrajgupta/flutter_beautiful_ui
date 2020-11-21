@@ -12,7 +12,6 @@ class AccountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(verified);
     return Container(
       //decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       padding: EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20),
